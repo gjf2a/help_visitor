@@ -2,7 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 24: Tab characters are not allowed in Ren'Py scripts.
+File "game/script.rpy", line 61: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
+    "Escape to the enchanted forest."
+                                     ^
+
+File "game/script.rpy", line 76: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
+    "Yes"
+         ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Tue Mar 29 13:01:14 2022
+Wed Mar 30 11:00:14 2022
