@@ -25,21 +25,35 @@ label start:
     $ escaped = False
     $ alien_visit = False
 
-    r "Welcome to the snowy Hendrix campus. This is a typical snowy day."
+    r "Welcome to the snowy Hendrix campus. This may seem like a typical snowy day, but..."
 
-    r "Where would you like to go?"
+    r "Unusual things have been happening. Very unusual things."
     
-    menu:
-        "Enchanted snow forest":
-            jump snow_forest
-            
+    r "Within the depths of the snowfall, a portal has opened to an enchanted world."
+    
+    r "It may be peaceful, or it may be dangerous. Nobody knows."
+    
+    r "Furthermore, an alien spacecraft has been sighted in the area."
+    
+    r "They may have come in peace, or not..."
+    
+    r "Which would you like to see?"
+    
+    menu:            
         "Alien landing site":
             jump alien_landing
+            
+        "Enchanted snow forest":
+            r "Let us walk through the portal, and find out what we will see."
+            
+            jump snow_forest
     
 label snow_forest:
 
     with Dissolve(0.5)
     pause 0.25
+    
+    play music "audio/Cantiga59.mp3"
     
     scene bg enchanted_landscape
 
@@ -57,7 +71,7 @@ label snow_forest:
         
         a "This is a place of truly sublime beauty, well worth my interstellar voyage. Thank you!"
     else:
-        r "Enjoy the sublime beauty of the enchanted forest."
+        r "This is a place of peace and truly sublime beauty. Enjoy your visit!"
     
     return
     
@@ -66,6 +80,8 @@ label alien_landing:
     with Dissolve(0.5)
     pause 0.25
     
+    play music "audio/alien_scary_ship.mp3"
+    
     scene bg spaceship_crop
     
     show robot smallcrop:
@@ -73,16 +89,25 @@ label alien_landing:
         yalign 1.0
         size (80, 80)
  
-    r "Look out, here they come!"
+    r "Behold, the alien spacecraft. They have landed!"
+    
+    r "I am not sure what they are going to do. They seem to be waiting for us to make the first move."
     
     r "What do you want to do?"
     
     menu: 
-        "Escape to the enchanted forest.":
+        "Escape to the portal to the enchanted forest.":
             $ escaped = True
+            
+            r "If we are quick, perhaps they will not react."
+            
+            r "Here is the portal. Let us enter before they follow us."
+            
             jump snow_forest
             
         "Attack the aliens.":
+            r "I hope you are well-armed, for their capabilities are unclear..."
+        
             jump alien_attack
         
         "Talk to the aliens.":
@@ -91,6 +116,8 @@ label alien_landing:
 label alien_talk:
     scene bg alien_talk_2
 
+    play music "audio/scene1.mp3"
+    
     a "I am in search of the enchanted forest. Can you take me there?"
     
     menu:
@@ -110,6 +137,8 @@ label alien_attack:
     
 label alien_no:
     a "I'm sorry to have come all this way. Farewell..."
+    
+    r "The alien has departed. Let us be on our way."
     
     return
     
